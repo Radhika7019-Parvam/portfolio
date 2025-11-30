@@ -44,7 +44,10 @@ header nav a:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: linear-gradient(135deg, #1a1a1a, #000);
+    /* lighter overlay so the background image is more visible */
+    background:
+        linear-gradient(rgba(6,6,6,0.32), rgba(6,6,6,0.32)),
+        url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
     padding: 20px;
 }
 
@@ -68,6 +71,41 @@ header nav a:hover {
 .section {
     padding: 80px 10%;
     scroll-margin-top: 76px; /* offset when using anchor links */
+}
+
+/* Section-specific backgrounds with lighter overlays to show images clearly */
+#skills.section {
+    background:
+        linear-gradient(rgba(10,10,10,0.32), rgba(10,10,10,0.32)),
+        url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+}
+
+#projects.section {
+    background:
+        linear-gradient(rgba(8,8,8,0.30), rgba(8,8,8,0.30)),
+        url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+}
+
+#contact.section {
+    background:
+        linear-gradient(rgba(16,16,16,0.34), rgba(16,16,16,0.34)),
+        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+}
+
+/* Improve contrast for cards on image backgrounds */
+.project, .skill {
+    background: rgba(0,0,0,0.55); /* semi-transparent so image shows through */
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Headings more readable on images */
+.hero h2, .title, .project h3 {
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+/* Mobile tweak: reduce hero height on small screens */
+@media (max-width: 600px) {
+    .hero { height: 60vh; background-attachment: scroll; }
 }
 
 .title {
